@@ -1,0 +1,908 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#home,  #rooms, #location,#travel-times{
+    scroll-margin-top: 50px;
+}
+
+#whyus{
+    scroll-margin-top: 100px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*COOKIES*/
+#cookie-banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    color: white;
+    padding: 15px 20px;
+    z-index: 9999;
+    font-family: sans-serif;
+}
+
+#cookie-banner .cookie-buttons button{
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#cookie-banner #accept-cookies{
+    background-color: rgb(2, 94, 2);
+    color: white;
+}
+
+#cookie-banner #accept-cookies:hover{
+    background-color: rgb(9, 110, 9);
+}
+
+#cookie-banner #reject-cookies{
+    background-color: burlywood;
+    color: white;
+}
+
+#cookie-banner #reject-cookies:hover{
+    background-color: rgb(243, 198, 146);
+
+}
+
+    /*BURGER*/
+.menu-toggle{
+    display:none;
+
+}
+
+/*NAVBAR*/
+
+.navbar-cover{
+    background-color: rgb(241, 238, 232);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+}
+
+.navbar{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.navbar-logo h3{
+    margin: 0;
+    line-height: 1.1;
+}
+
+.navbar-logo a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    font-weight: 100;
+    color: rgb(179, 108, 3);
+    white-space: pre-line;
+}
+
+.navbar-options{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-options a{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-options a:hover{
+    color: rgb(179, 108, 3);
+}
+
+.navbar-book{
+    margin-left: auto;
+}
+
+.navbar-book a{
+    text-decoration: none;
+    color: rgb(245, 238, 227);
+    border-radius: 10px;
+    padding: 10px 16px;
+    background-color: rgb(81, 141, 118);
+}
+
+.navbar-book a:hover{
+    background-color: rgb(28, 126, 86);
+    transform: translateY(-2px);
+}
+
+.navbar-book-phone{
+    display: none;
+}
+
+/*HERO*/
+
+.hero-cover{
+    background-color: rgb(233, 228, 219);
+}
+
+.hero{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding-bottom: 15px;
+}
+
+.nav-flag-hero{
+    display: none;
+}
+
+
+.hero-text h4{
+    color: gray;
+}
+
+.hero-text h1{
+    white-space: pre-line;
+    font-size: 400%;
+    font-weight: 100;
+}
+
+.hero-text span{
+    color: rgb(81, 141, 118);
+    font-style: italic;
+}
+
+.hero-text p{
+    white-space: pre-line;
+    color: gray;
+}
+
+.hero-img img{
+    padding-top: 70px;
+    height: 750px;
+    width: auto;
+}
+
+.hero-buttons{
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+
+}
+
+.hero-buttons a{
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 15px 20px;
+    background-color: rgb(81, 141, 118);
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.view-button, .contact-button{
+    color: white !important;
+}
+
+.hero-buttons a:hover{
+    transform: translateY(-3px);
+}
+
+/*ROOMS*/
+.rooms-cover{
+    padding-top: 20px;
+    background-color: rgb(233, 226, 213);
+    padding-bottom: 15px;
+}
+
+.rooms{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+
+/* Slider */
+
+.rooms-grid{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+.room-card {
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    flex: 1 1 300px;
+
+}
+
+.room-slider {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.room-slider img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: none;
+}
+
+.room-slider img.active {
+    display: block;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* Arrows */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 100;
+}
+
+/*all in room info goes left*/
+.room-info {
+    text-align: left;
+    padding: 8px;
+}
+
+.room-info h3 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.room-info p{
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.room-info ul {
+    padding-left: 20px;
+    color: #555;
+}
+
+.room-info li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/*color for bullets*/
+.room-info li::marker{
+    color: burlywood;
+    font-size: 1.1em;
+}
+
+/*FACILITIES*/
+.facilities-cover{
+    background-color: rgb(241, 235, 227);
+    padding-bottom: 20px;
+}
+
+.facilities{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.facilities-info-texts{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.facilities h4{
+    color: rgb(81, 141, 118);
+    font-size: x-large;
+}
+
+.facilities p{
+    color: rgb(88, 88, 88);
+}
+
+.facilities-text {
+    color: rgb(81, 141, 118) ;
+    font-size: 300%;
+}
+
+.facilities-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*BOOK*/
+
+.book-cover{
+    padding-top: 10px;
+    background-color: rgb(233, 226, 213);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+        /*BOOK HEADER*/
+.book-header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-header h1,p,h4{
+    margin: 0;
+}
+
+.book-header h4{
+    color: grey;
+    font-weight: 100;
+}
+
+.book-header h1{
+    font-size: 400%;
+    font-weight: 200;
+}
+
+.book-header p{
+    margin-bottom: 15px;
+}
+
+        /*BOOK METHODS*/
+.book-methods{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    white-space: pre-line;
+    justify-content: center;
+    flex: 1;
+    gap: 50px;
+}
+
+.book-card{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: start;
+
+    border-radius: 5px;
+    background-color: rgb(241, 235, 227);
+    padding: 15px;
+}
+
+.book-card-major-icon{
+    border-radius: 999px;
+    background-color: rgba(203, 218, 208, 0.438);
+    padding: 15px;
+
+    color: rgb(81, 141, 118);
+}
+
+.book-card-info{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px ;
+    align-items: start;
+}
+
+.book-card h3,
+.book-card h4,
+.book-card p {
+    margin: 0;
+}
+
+h4.book-card-info-icon{
+    margin: 0;
+    margin-top: 20px;
+}
+
+.book-card-info-icon span{
+    color: rgb(81, 141, 118);
+}
+
+p.book-card-text{
+    align-items: start;
+    color: rgb(77, 76, 76);
+}
+
+.book-card-info-text{
+    color: rgb(77, 76, 76);
+    font-weight: 500;
+}
+
+.book-card a{
+    margin-top: 25px;
+    align-items: center;
+
+    text-decoration: none;
+    color: whitesmoke;
+
+    border-radius: 3px;
+    padding: 16px;
+    background-color: rgb(81, 141, 118);
+    width: 350px;
+    height: auto;
+
+    font-weight: 700;
+    font-size: large;
+}
+
+.book-card-button {
+    align-self: center;
+}
+
+/*LOCATION*/
+
+.location-cover{
+    padding-top: 10px;
+    background-color: rgb(233, 228, 219);
+    padding-bottom: 80px;
+}
+
+.location-inner{
+    display: flex;
+    flex: 1;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.location {
+    max-width: 1700px;
+    height: auto;
+    margin-left: auto;
+}
+
+.location-info h1{
+    font-size: 250%;
+}
+
+.location-info-title{
+    margin-top: 15px;
+    color: rgb(28, 126, 86);
+}
+
+.location-info-text{
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.location-info a{
+    display: flex;
+    color: black;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+.location-info a:hover{
+    text-decoration: underline;
+}
+
+
+/*FOOTER*/
+.footer-cover{
+    background-color: rgb(241, 235, 227);
+    padding-top: 1%;
+}
+
+footer::before{
+    content: "";
+    display: block;
+    width: 80%;   /* όσο θες */
+    height: 1px;
+    background: #b3b2b2;
+    margin: 0 auto 20px auto;
+}
+
+.footer{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.footer-info h4{
+    color:black;
+}
+
+.footer-contact a{
+    text-decoration: none;
+    color: black !important;
+}
+
+.footer a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+.footer h4{
+    color: black;
+    font-weight: 100;
+}
+
+.footer-contact, .footer-info{
+    padding-top: 20px;
+}
+
+
+
+/*FOOTER-TEXT*/
+
+.footer-text h3{
+    color: rgb(28, 126, 86);
+}
+
+.footer-text p{
+    color: black;
+}
+
+.footer-text img{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 150px;
+    height: auto;
+}
+
+/*FOOTER-INFO*/
+
+
+.footer-title{
+    color: rgb(28, 126, 86) !important;
+    font-weight: 800 !important;
+    font-size: large;
+    font-weight: bold;
+}
+
+
+
+/*TRAVEL TIMES*/
+
+.travel-times-cover{
+    padding-top: 1px;
+    padding-bottom: 15px;
+    background-color: rgb(241, 235, 227);
+}
+
+.travel-times{
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(2, 66, 2)
+}
+
+.travel-times p{
+    padding-bottom: 10px;
+}
+
+.travel-locations{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.travel-location{
+    width: calc(25%);
+    background: whitesmoke;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    text-align: left;
+}
+
+.travel-location span{
+    padding: 15px;
+    background-color: rgb(241, 235, 227);
+    color: rgb(28, 126, 86);
+}
+
+.travel-locations-card{
+    color:black;
+}
+
+.travel-locations-card a{
+    text-decoration: none;
+    color: black;
+}
+
+.travel-locations-card a:hover{
+    text-decoration: underline;
+}
+
+.travel-location-phone{
+    display: none;
+}
+
+.travel-locations-title{
+    color: rgb(28, 126, 86);
+}
+
+.travel-locations-info{
+    color: grey;
+    font-weight: 400;
+}
+
+
+@media(max-width:768px){
+
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 9999;
+        font-size:28px;
+        cursor:pointer;
+        right: 10%;
+        justify-content: center;
+        align-items: center;
+        background:none;
+        border:none;
+    }
+
+    .navbar.active .navbar-options {
+        display: flex;
+    }
+
+   .navbar-options {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        background-color: rgb(241, 235, 227);
+        gap: 0px;
+        align-items: flex-end;
+    }
+    
+    .navbar-options a{
+        display: block;
+        width: 100%;
+        padding: 15px;
+        text-align: right;
+    }
+
+    .nav-flag{
+        display: none;
+    }
+
+
+    .navbar-book{
+        display: none;
+    }
+
+    .navbar-book-phone{
+        margin-left: auto;
+        margin-right: 3px;
+        border-radius: 12px;
+        background-color: rgb(81, 141, 118);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: flex-start; 
+        padding: 6px 6px;
+    }
+
+    .navbar-book-phone a{
+        text-decoration: none;
+        color: whitesmoke;
+        white-space: pre-line;
+        align-items: center;
+        text-align: center;
+    }
+
+    /*HERO*/
+    .hero-cover{
+        padding-top: 130px;
+    }
+
+    .nav-flag-hero{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: block;
+        z-index: 100;
+    }
+
+    .hero{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .hero-img {
+        display: none; /* κρύβεις την κανονική εικόνα */
+    }
+
+    .hero-cover {
+        background-image: url("img/εξωτερικα/image00003.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-text h4{
+        color: whitesmoke;
+    }
+
+    .hero h1{
+        font-size: 300%;
+        color: whitesmoke;
+    }
+
+    .hero-text p{
+        display: none;
+    }
+
+    .hero-text span{
+        color: rgb(234, 143, 6);
+        font-style: italic;
+    }
+
+
+    /*ROOMS*/
+    .rooms h2{
+        color: rgb(179, 108, 3);
+    }
+
+    /*WHY US*/
+    .facilities{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*BOOK*/
+
+    .book-methods{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .book-card a{
+        width: 200px;
+    }
+
+    .book-card-info{
+        align-items: center;
+    }
+
+    /*LOCATION*/
+
+    .location-inner {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .location {
+        width: 100%;
+        margin: 20px auto 0;
+    }
+
+    .location iframe {
+        width: 100%;
+        height: 350px;
+    }
+
+    /*TRAVEL TIMES*/
+
+        .travel-locations{
+        display: none;
+    }
+
+    .travel-location-phone{
+        display: block;        
+        background: whitesmoke;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .travel-location-phone span{
+        padding: 15px;
+        background-color: rgb(241, 235, 227);
+        color: rgb(2, 66, 2);
+    }
+
+    .travel-location-phone a{
+        text-decoration: none;
+        color: black;
+    }
+
+    /*FOOTER*/
+    .footer {
+        flex-direction: column;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .footer > div {
+        width: 100%;
+    }
+
+    .footer > div{
+        min-width: 0;
+    }
+
+    .footer{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    #home, #rooms, #location, #travel-times{
+        scroll-margin-top: 100px;
+    }   
+
+    #book{
+        scroll-margin-top: 60px;
+    }
+
+    html[lang="el-GR"] .hero-text h4{
+        white-space: pre-line;
+    }
+
+}
